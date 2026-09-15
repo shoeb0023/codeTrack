@@ -1,17 +1,14 @@
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) 
-    {
-
-        unordered_map<int, int> mp;
-
-        for (int i = 0; i < nums.size(); i++) {
-
-            int needed = target - nums[i];
-
-            if (mp.find(needed) != mp.end()) {
-                return {mp[needed], i};
-            }
-
-            mp[nums[i]] = i;
-        }
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> 
+    List[int]:
+        seen = {}
+        
+        for i, num in enumerate(nums):
+            needed = target - num
+            
+            if needed in seen:
+                return [seen[needed], i]
+            
+            seen[num] = i
+            
+        return []
